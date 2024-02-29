@@ -1,8 +1,10 @@
-require('dotenv').config(); // check if one is enough
-import express = require('express');
+import express from 'express';
+import {config} from "dotenv";
 
 import appRouter from './routes/router';
 import errorHandler from './middleware/errorHandler';
+
+config();
 
 const app: express.Application = express();
 
@@ -15,7 +17,7 @@ app.use('/api', appRouter);
 
 app.use(errorHandler);
 
-
+console.log(PORT)
 app.listen(PORT, function () {
     console.log(`App is listening on port ${PORT}!`);
 });

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { DeclineInsufficientFund } from '../../../../errors/DeclineInsufficientClient';
+import { DeclineInsufficientFund } from '../errors/DeclineInsufficientClient';
 
-import { GetChargeBody } from '../../../../models/charge';
+import { GetChargeBody } from '../models/charge';
 
 const visaUrl = process.env.VISA_PAYMENT_URL;
 const identifier = process.env.IDENTIFIER || 'Michael_Hoffman';
@@ -31,7 +31,7 @@ export const chargeVisa = async (chargeBody: GetChargeBody) => {
 
 export const parseVisaResponse = (response) => {
     const status = response.status;
-    const { chargeResult, resultReason } = response?.data;
+    const { chargeResult, resultReason } = response.data;
 
     if (status === 200 && chargeResult === 'Success') {
         return true;

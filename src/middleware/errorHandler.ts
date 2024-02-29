@@ -1,6 +1,6 @@
 import { BaseError } from '../errors/baseError';
 
-const errorHandler = (error, req, res, next) => {
+const errorHandler = (error, req, res) => {
     if (error instanceof BaseError) {
         printError(error, true);
         return res.status(error.httpCode).json({ error: error.details })

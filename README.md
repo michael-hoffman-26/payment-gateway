@@ -7,7 +7,8 @@ Riskified payment gateway
 First, you need to have Node.js installed.
 Build the server, at the main folder
 
+
 ```bash
-npm install
-npm start
+npm ci
+npm run start:dev
 ```

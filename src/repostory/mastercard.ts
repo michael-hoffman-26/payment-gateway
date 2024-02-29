@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { DeclineInsufficientFund } from '../../../../errors/DeclineInsufficientClient';
-import { GetChargeBody } from '../../../../models/charge';
+import { DeclineInsufficientFund } from '../errors/DeclineInsufficientClient';
+import { GetChargeBody } from '../models/charge';
 
-const mastercardUrl = process.env.MASTERCARD_PAYMENT_URL;
-const identifier = process.env.IDENTIFIER || 'Michael_Hoffman';
+const mastercardUrl = process.env?.MASTERCARD_PAYMENT_URL;
+const identifier = process.env?.IDENTIFIER ? process.env?.IDENTIFIER : 'Michael_Hoffman';
 
 export const chargeMasterCardRetry = (chargeBody: GetChargeBody) => {
     const splittedFullName = chargeBody.fullName.split(' ');

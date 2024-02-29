@@ -1,8 +1,8 @@
 import express from 'express'
 
 import { validateRequest } from '../../../validator/validator';
-import { chargeCreditCardRoute } from './routes/getCharge';
-import { postChargeValidator, } from './validator';
+import { chargeCreditCard } from '../../../controller/charge';
+import { postChargeValidator, } from './validators';
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('',
     postChargeValidator,
     validateRequest,
-    chargeCreditCardRoute
+    chargeCreditCard
 );
 
 export default router;
