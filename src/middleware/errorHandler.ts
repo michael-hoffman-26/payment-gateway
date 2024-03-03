@@ -1,6 +1,7 @@
 import { BaseError } from '../errors/baseError';
 
-const errorHandler = (error, req, res) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const errorHandler = (error, req, res, next) => {
     if (error instanceof BaseError) {
         printError(error, true);
         return res.status(error.httpCode).json({ error: error.details })

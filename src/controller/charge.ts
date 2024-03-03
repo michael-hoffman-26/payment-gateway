@@ -1,4 +1,5 @@
 import {NextFunction, Request, Response} from "express";
+import { StatusCodes, getReasonPhrase } from 'http-status-codes';
 
 import { chargeCreditCardRetry } from "../service/charge";
 
@@ -6,7 +7,8 @@ export const chargeCreditCard = async (req: Request, res: Response, next: NextFu
     try {
         await chargeCreditCardRetry(req.body)
 
-        return res.status(200).json()
+        res.status(StatusCodes.CREATED)
+        res.json({status: getReasonPhrase(StatusCodes.CREATED)})
     } catch (error) {
         next(error)
     }

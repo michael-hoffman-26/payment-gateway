@@ -1,5 +1,5 @@
 import { body, header, CustomValidator, ValidationChain } from 'express-validator';
-import { CreditCardCompany } from '../../../models/charge';
+import { CreditCardCompany } from '../../models/charge';
 
 const isValidCreditCardCompany: CustomValidator = (value) => {
     if (!Object.values(CreditCardCompany).includes(value)) {
