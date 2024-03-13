@@ -16,6 +16,9 @@
   },
   "author": "Michael_Hoffman",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.15.0"
+  },
   "devDependencies": {
     "@types/async": "^3.2.10",
     "@types/express": "^4.17.11",
